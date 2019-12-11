@@ -1,0 +1,56 @@
+<% include ../base/header.ejs %>
+<section>
+    <div class="container">
+        <div>
+            <h1 class="text-center display-4" style="margin-top:15%">회원가입</h1>
+            <form action="/users/register" method="post" class="mt-5">
+                <div class="form-group w-25 mx-auto">
+                    <label for="exampleInputEmail1">이메일</label>
+                    <input type="email" name="email" class="form-control" id="Email" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">당신의 이메일은 안전합니다.</small>
+                </div>
+                <div class="form-group w-25 mx-auto">
+                    <label for="Username">사용자 이름</label>
+                    <input type="text" name="name" class="form-control" id="Username">
+                </div>
+                <div class="form-group w-25 mx-auto">
+                    <label for="exampleInputPassword1">비밀번호</label>
+                    <input type="password" name="password" class="form-control" id="Password">
+                </div>
+                <div class="w-25 mx-auto text-center">
+                    <button id ="register" class="btn btn-primary mx-auto">가입하기</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script>
+
+    $( document ).ready(function() {
+        $("#register").click(function(){
+            var json ={};
+
+            json.email = $("#Email").val();
+            json.name = $("#Username").val();
+            json.password = $("#Password").val();
+
+            $.ajax({
+                type:"POST",
+                url:"/users/register",
+                data : json,
+                dataType : "json",
+                success: function(data){
+                    alert(data);
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                    alert(error);
+                }
+            });
+        })
+    });
+
+
+
+</script>
+<% include ../base/footer.ejs %>

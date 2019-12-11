@@ -12,7 +12,6 @@ mongoose
     .then(() => console.log("몽고 DB가 연결되었습니다."))
     .catch(err => console.log(err));
 
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 

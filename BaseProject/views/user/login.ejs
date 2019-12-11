@@ -1,0 +1,23 @@
+<% include ../base/header.ejs %>
+<section>
+    <div class="container">
+        <div>
+            <h1 class="text-center display-4" style="margin-top:15%">로그인</h1>
+            <form action="/users/login" method="post" class="mt-5">
+                <div class="form-group w-25 mx-auto">
+                    <label for="exampleInputEmail1">이메일</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">이메일을 입력해주세요.</small>
+                </div>
+                <div class="form-group w-25 mx-auto">
+                    <label for="exampleInputPassword1">비밀번호</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <div class="w-25 mx-auto text-center">
+                    <button type="submit" class="btn btn-primary mx-auto">로그인</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<% include ../base/footer.ejs %>
