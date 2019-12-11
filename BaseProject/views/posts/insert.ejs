@@ -1,0 +1,27 @@
+<% include ../base/header.ejs %>
+<section>
+    <section>
+        <div class="container">
+            <div>
+                <h1 class="text-center display-4" style="margin-top:15%">작성하기</h1>
+                <form action="/posts/insert" method="post" class="mt-5">
+                    <div class="form-group w-50 mx-auto">
+                        <label for="title">글제목</label>
+                        <input type="text" name="title" class="form-control" id="Email" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group w-50 mx-auto">
+                        <label for="body">본문</label>
+                        <input type="text" name="body" class="form-control" style="height: 20vh" id="body">
+                    </div>
+                    <div class="w-50 mx-auto text-right">
+                        <div class="btn-group">
+                            <button id="insert" type="submit" class="btn btn-primary">저장</button>
+                            <a href="/posts" id="back" class="btn btn-primary">뒤로가기</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</section>
+<% include ../base/footer.ejs %>

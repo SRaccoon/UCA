@@ -1,0 +1,47 @@
+<% include ../base/header.ejs %>
+<section>
+    <section>
+        <div class="container">
+            <div>
+                <h1 class="text-center display-4" style="margin-top:15%">게시판</h1>
+                <div class="mt-5">
+                    <div class="w-100 text-right">
+                        <a href="/posts/insert" class="btn btn-primary">글 작성</a>
+                    </div>
+                    <table class="table mt-2">
+                        <thead>
+                        <tr>
+                            <th>제목</th>
+                            <th>날짜</th>
+                            <th>작성자</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% if(posts == null || posts.length == 0){ %>
+                            <tr>
+                                <td class="noData" colspan=100> 보여줄 데이터가 없어요 :D</td>
+                            </tr>
+                        <% } %>
+                        <% posts.forEach(function(post) { %>
+                            <tr>
+                                <td>
+                                    <a href="/posts/detail/<%= post._id %>">
+                                        <div><%= post.title %></div>
+                                    </a>
+                                </td>
+                                <td>
+                                    <%= post.createdDate %>
+                                </td>
+                                <td>
+                                    <%= post.author ? post.author.username : "" %>
+                                </td>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<% include ../base/footer.ejs %>

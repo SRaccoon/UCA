@@ -22,13 +22,13 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    console.log(req.body);
     User.findOne({email: req.body.email})
         .then(user => {
             if (user) {
-                return res.status(400).json({
+                var json = {
                     email: "해당 이메일을 가진 사용자가 존재합니다."
-                })
+                };
+                res.json(400,json);
             } else {
                 const newUser = new User({
                     email: req.body.email,

@@ -1,0 +1,34 @@
+<% include ../base/header.ejs %>
+<section>
+    <section>
+        <div class="container">
+            <div>
+                <h1 class="text-center display-4" style="margin-top:15%">상세 내용</h1>
+                <div class="mt-5">
+                    <div class="text-right mx-auto w-50">
+                    <a href="/posts" id="back" class="btn btn-primary text-white">뒤로가기</a>
+                    </div>
+                    <div class="form-group w-50 mx-auto">
+                        <label for="title">제목</label>
+                        <div class="form-control" type="text" id="title" name="title"><%= post.title %></div>
+                    </div>
+                    <div class="form-group w-50 mx-auto">
+                        <label for="body">본문</label>
+                        <text style="height: 30vh" class="form-control" id="body" name="body"
+                              rows="5"><%= post.body %></text>
+                    </div>
+                    <div class="w-50 mx-auto text-right">
+
+                        <a class="btn btn-primary mx-1" href="/posts/<%= post._id %>/edit">수정</a>
+                        <div class="btn-group">
+                            <form action="/posts/detail/<%= post._id %>" method="post">
+                                <a class="btn btn-danger" href="#" onclick="confirm('정말 삭제?')?this.parentElement.submit():null;">삭제</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<% include ../base/footer.ejs %>
